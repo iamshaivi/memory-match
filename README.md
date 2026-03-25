@@ -5,8 +5,7 @@
 <div align="center">
   <img src="genshin impact vision.jpg" width="30%" />
 </div>
-
-I took inspiration from game genshin impact that game graphic and style are ingrained in my mind so I mix that game style and pixel for this so this is how it looks for now 
+I took inspiration from the game Genshin Impact — its graphics and style are so ingrained in my mind that I mixed that game's aesthetic with pixel art. This is how it looks for now.I took inspiration from game genshin impact that game graphic and style are ingrained in my mind so I mix that game style and pixel for this so this is how it looks for now 
 
 ## 🎮 Play Now
 👉 [Live Demo](iamshaivi.github.io/memory-match/)
