@@ -1,5 +1,9 @@
 # Memoria Memory Match Game
 
+<div align="center">
+  <img src="Teyvat Compendium.gif" width="100%" />
+</div>
+
 I took inspiration from game genshin impact that game graphic and style are ingrained in my mind so I mix that game style and pixel for this so this is how it looks for now 
 
 ## 🎮 Play Now
