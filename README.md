@@ -1,1 +1,27 @@
 # memory-match
+
+# Memoria — Memory Match Game
+
+I took inspiration from game genshin impact that game graphic and style are ingrained in my mind so I mix that game style and pixel for this so this is how it looks for now 
+
+## 🎮 Play Now
+👉 [Live Demo](iamshaivi.github.io/memory-match/)
+
+## Features
+- 3 difficulty levels (2×4, 4×6, 4×8)
+- Move counter, live timer, and best score tracking
+- Hint system
+- Animated starfield background and pixel dust effects
+
+## How to Play
+1. Click any card to flip it
+2. Find its matching pair
+3. Match all pairs to win
+4. Try to beat your best move count!
+
+## Tech Stack
+- Pure HTML / CSS / JavaScript
+- No frameworks or dependencies
+- Single file — works offline
+
+## can run locally
