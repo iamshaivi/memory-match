@@ -1,6 +1,4 @@
-# memory-match
-
-# Memoria — Memory Match Game
+# Memoria Memory Match Game
 
 I took inspiration from game genshin impact that game graphic and style are ingrained in my mind so I mix that game style and pixel for this so this is how it looks for now 
 
@@ -20,7 +18,7 @@ I took inspiration from game genshin impact that game graphic and style are ingr
 4. Try to beat your best move count!
 
 ## Tech Stack
-- Pure HTML / CSS / JavaScript
+- HTML / CSS / JavaScript
 - No frameworks or dependencies
 - Single file — works offline
 
