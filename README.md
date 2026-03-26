@@ -8,7 +8,8 @@
 I took inspiration from the game Genshin Impact its graphics and style are so ingrained in my mind that I mixed that game's aesthetic with pixel art. This is how it looks for now.
 
 ## 🎮 Play Now
-👉 [Live Demo](iamshaivi.github.io/memory-match/)
+<!--👉 [Live Demo](iamshaivi.github.io/memory-match/)-->
+👉 [Live Demo](iamshaivi.github.io/memory-match/](https://iamshaivi.github.io/memory-match/))
 
 ## Features
 - 3 difficulty levels (2×4, 4×6, 4×8)
