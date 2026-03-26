@@ -12,7 +12,7 @@ I took inspiration from the game Genshin Impact its graphics and style are so in
 👉 [Live Demo](https://iamshaivi.github.io/memory-match/)
 
 ## Features
-- 3 difficulty levels (2×4, 4×6, 4×8)
+- 3 difficulty levels (4×4, 6×6, 8×8)
 - Move counter, live timer, and best score tracking
 - Hint system
 - Animated starfield background and pixel dust effects
