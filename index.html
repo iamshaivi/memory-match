@@ -246,22 +246,22 @@ h1 {
 .card.matched .card-label { color: var(--gold); }
 
 /* bg gradients per element */
-.el-pyro.card-front  { background: linear-gradient(135deg, #2a1010, #1a0a0a); }
+/*.el-pyro.card-front  { background: linear-gradient(135deg, #2a1010, #1a0a0a); }
 .el-hydro.card-front { background: linear-gradient(135deg, #0a1a2a, #0a0f1a); }
 .el-anemo.card-front { background: linear-gradient(135deg, #0a2a1a, #0a1a10); }
 .el-electro.card-front { background: linear-gradient(135deg, #1a0a2a, #100a1a); }
 .el-cryo.card-front { background: linear-gradient(135deg, #0a1a2a, #0a1520); }
 .el-geo.card-front { background: linear-gradient(135deg, #2a1a0a, #1a1005); }
 .el-dendro.card-front { background: linear-gradient(135deg, #0a2a0a, #051505); }
-.el-void.card-front { background: linear-gradient(135deg, #1a0a1a, #0f050f); }
-/*.el-solar.card-front { background: linear-gradient(135deg, #5a3a00, #ffcc00); box-shadow: inset 0 0 20px rgba(255,200,0,0.4); }
-.el-lunar.card-front { background: linear-gradient(135deg, #1a1a3a, #6677ff); box-shadow: inset 0 0 20px rgba(100,120,255,0.4); }
-.el-nature.card-front { background: linear-gradient(135deg, #1a3a0a, #88ff44); box-shadow: inset 0 0 20px rgba(136,255,68,0.4); }
-.el-storm.card-front { background: linear-gradient(135deg, #0a0a3a, #3399ff); box-shadow: inset 0 0 20px rgba(51,153,255,0.4); }
-.el-shadow.card-front { background: linear-gradient(135deg, #1a001a, #cc00cc); box-shadow: inset 0 0 20px rgba(200,0,200,0.4); }
-.el-magma.card-front { background: linear-gradient(135deg, #3a0a00, #ff6600); box-shadow: inset 0 0 20px rgba(255,100,0,0.4); }
-.el-spirit.card-front { background: linear-gradient(135deg, #002a2a, #00ffcc); box-shadow: inset 0 0 20px rgba(0,255,200,0.4); }
-.el-cosmic.card-front { background: linear-gradient(135deg, #0a0020, #aa44ff); box-shadow: inset 0 0 20px rgba(170,68,255,0.4); }*/
+.el-void.card-front { background: linear-gradient(135deg, #1a0a1a, #0f050f); }*/
+
+.el-pyro.card-front{ background: linear-gradient(135deg, #2a1010, #1a0a0a); box-shadow: inset 0 0 12px rgba(255,80,0,0.15); }
+.el-hydro.card-front{ background: linear-gradient(135deg, #0a1a2a, #0a0f1a); box-shadow: inset 0 0 12px rgba(0,120,255,0.15); }
+.el-anemo.card-front{ background: linear-gradient(135deg, #0a2a1a, #0a1a10); box-shadow: inset 0 0 12px rgba(0,200,150,0.15); }
+.el-dendro.card-front{ background: linear-gradient(135deg, #0a2a0a, #051505); box-shadow: inset 0 0 12px rgba(76,255,80,0.15); }
+.el-electro.card-front{ background: linear-gradient(135deg, #1a0a2a, #100a1a); box-shadow: inset 0 0 12px rgba(155,50,255,0.15); }
+.el-cryo.card-front{ background: linear-gradient(135deg, #0a1a2a, #0a1520); box-shadow: inset 0 0 12px rgba(0,210,255,0.15); }
+.el-geo.card-front{ background: linear-gradient(135deg, #2a1a0a, #1a1005); box-shadow: inset 0 0 12px rgba(255,170,0,0.15); }
 
 /* ── Action buttons ── */
 .actions { display: flex; gap: 12px; margin-top: 1.5rem; justify-content: center; }
@@ -361,8 +361,8 @@ h1 {
 
   <div class="diff-row">
     <button class="diff-btn active" onclick="setDiff(4,4,this)">4×4</button>
-    <button class="diff-btn" onclick="setDiff(4,16,this)">4×16</button>
-    <button class="diff-btn" onclick="setDiff(12,12,this)">12×12</button>
+    <button class="diff-btn" onclick="setDiff(6,6,this)">6×6</button><!--ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh-->
+    <button class="diff-btn" onclick="setDiff(8,8,this)">8×8</button><!--ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh-->
   </div>
 
   <div class="stats">
@@ -420,153 +420,14 @@ for (let i = 0; i < 120; i++) {
 }
 
 /* Game data */
-/*const CARDS = [
+  const CARDS = [
   { emoji: '🔥', label: 'PYRO',    cls: 'el-pyro' },
   { emoji: '💧', label: 'HYDRO',   cls: 'el-hydro' },
   { emoji: '🌪️', label: 'ANEMO',   cls: 'el-anemo' },
+  { emoji: '🌿', label: 'DENDRO',  cls: 'el-dendro' },
   { emoji: '⚡', label: 'ELECTRO', cls: 'el-electro' },
   { emoji: '❄️', label: 'CRYO',    cls: 'el-cryo' },
   { emoji: '🪨', label: 'GEO',     cls: 'el-geo' },
-  { emoji: '🌿', label: 'DENDRO',  cls: 'el-dendro' },
-  { emoji: '🌑', label: 'VOID',    cls: 'el-void' },
-  { emoji: '☀️', label: 'SOLAR',   cls: 'el-pyro' },
-  { emoji: '🌊', label: 'WAVE',    cls: 'el-hydro' },
-  { emoji: '🌈', label: 'PRISM',   cls: 'el-anemo' },
-  { emoji: '🔮', label: 'ARCANE',  cls: 'el-electro' },
-  { emoji: '🧊', label: 'FROST',   cls: 'el-cryo' },
-  { emoji: '⛰️', label: 'TERRA',   cls: 'el-geo' },
-  { emoji: '🍃', label: 'FLORA',   cls: 'el-dendro' },
-  { emoji: '🌙', label: 'LUNA',    cls: 'el-void' },
-  { emoji: '💥', label: 'BURST',   cls: 'el-pyro' },
-  { emoji: '🫧', label: 'BUBBLE',  cls: 'el-hydro' },
-  { emoji: '🌀', label: 'VORTEX',  cls: 'el-anemo' },
-  { emoji: '✨', label: 'SPARK',   cls: 'el-electro' },
-  { emoji: '🌨️', label: 'BLIZZARD',cls: 'el-cryo' },
-  { emoji: '🏔️', label: 'PEAK',    cls: 'el-geo' },
-  { emoji: '🌱', label: 'SPROUT',  cls: 'el-dendro' },
-  { emoji: '🕳️', label: 'ABYSS',   cls: 'el-void' },
-  { emoji: '🌋', label: 'MAGMA',   cls: 'el-pyro' },
-  { emoji: '🐉', label: 'DRAGON',  cls: 'el-electro' },
-  { emoji: '🦋', label: 'SPIRIT',  cls: 'el-anemo' },
-  { emoji: '💎', label: 'CRYSTAL', cls: 'el-geo' },
-  { emoji: '🍀', label: 'CLOVER',  cls: 'el-dendro' },
-  { emoji: '⭐', label: 'STAR',    cls: 'el-void' },
-  { emoji: '🎆', label: 'NOVA',    cls: 'el-pyro' },
-  { emoji: '🔱', label: 'TRIDENT', cls: 'el-hydro' },
-  { emoji: '🌸', label: 'BLOOM',   cls: 'el-dendro' },
-  { emoji: '⚗️', label: 'ELIXIR',  cls: 'el-electro' },
-  { emoji: '🪄', label: 'MYSTIC',  cls: 'el-void' },
-  { emoji: '🦅', label: 'FALCON',  cls: 'el-anemo' },
-  { emoji: '🌺', label: 'PETAL',   cls: 'el-dendro' },
-  { emoji: '🧲', label: 'MAGNET',  cls: 'el-electro' },
-  { emoji: '🫐', label: 'BERRY',   cls: 'el-hydro' },
-  { emoji: '🌠', label: 'COMET',   cls: 'el-void' },
-  { emoji: '🏵️', label: 'ROSETTE', cls: 'el-geo' },
-  { emoji: '🐚', label: 'SHELL',   cls: 'el-hydro' },
-  { emoji: '🪸', label: 'CORAL',   cls: 'el-cryo' },
-  { emoji: '🦊', label: 'FOX',     cls: 'el-pyro' },
-  { emoji: '🐺', label: 'WOLF',    cls: 'el-void' },
-  { emoji: '🦁', label: 'LION',    cls: 'el-geo' },
-  { emoji: '🐦', label: 'BIRD',    cls: 'el-anemo' },
-  { emoji: '🌵', label: 'CACTUS',  cls: 'el-dendro' },
-  { emoji: '🍄', label: 'SHROOM',  cls: 'el-dendro' },
-  { emoji: '🪐', label: 'PLANET',  cls: 'el-void' },
-  { emoji: '☄️', label: 'METEOR',  cls: 'el-pyro' },
-  { emoji: '🌌', label: 'GALAXY',  cls: 'el-electro' },
-  { emoji: '🔯', label: 'RUNE',    cls: 'el-electro' },
-  { emoji: '⚜️', label: 'CREST',   cls: 'el-geo' },
-  { emoji: '🧿', label: 'WARD',    cls: 'el-hydro' },
-  { emoji: '🪬', label: 'CHARM',   cls: 'el-cryo' },
-  { emoji: '🗡️', label: 'BLADE',   cls: 'el-void' },
-  { emoji: '🏹', label: 'ARROW',   cls: 'el-anemo' },
-  { emoji: '🛡️', label: 'SHIELD',  cls: 'el-geo' },
-  { emoji: '🔑', label: 'KEY',     cls: 'el-electro' },
-  { emoji: '📿', label: 'BEAD',    cls: 'el-hydro' },
-  { emoji: '🪩', label: 'ORION',   cls: 'el-cryo' },
-  { emoji: '🎴', label: 'SEAL',    cls: 'el-void' },
-  { emoji: '🧨', label: 'FLARE',   cls: 'el-pyro' },
-  { emoji: '🎇', label: 'GLOW',    cls: 'el-electro' },
-  { emoji: '🪷', label: 'LOTUS',   cls: 'el-dendro' },
-  { emoji: '🌾', label: 'REED',    cls: 'el-dendro' },
-  { emoji: '🫧', label: 'MIST',    cls: 'el-cryo' },
-  { emoji: '🌫️', label: 'HAZE',    cls: 'el-anemo' },
-  { emoji: '🔆', label: 'RADIANT', cls: 'el-pyro' },
-  { emoji: '💠', label: 'PRIMAL',  cls: 'el-cryo' },
-  { emoji: '🔷', label: 'SHARD',   cls: 'el-hydro' },
-];*/
-  const CARDS = [
-  { emoji: '🔥', label: 'PYRO',     cls: 'el-pyro' },
-  { emoji: '💧', label: 'HYDRO',    cls: 'el-hydro' },
-  { emoji: '🌪️', label: 'ANEMO',    cls: 'el-anemo' },
-  { emoji: '⚡', label: 'ELECTRO',  cls: 'el-electro' },
-  { emoji: '❄️', label: 'CRYO',     cls: 'el-cryo' },
-  { emoji: '🪨', label: 'GEO',      cls: 'el-geo' },
-  { emoji: '🌿', label: 'DENDRO',   cls: 'el-dendro' },
-  { emoji: '🌑', label: 'VOID',     cls: 'el-void' },
-  { emoji: '☀️', label: 'SOLAR',    cls: 'el-solar' },
-  { emoji: '🌊', label: 'WAVE',     cls: 'el-storm' },
-  { emoji: '🌈', label: 'PRISM',    cls: 'el-spirit' },
-  { emoji: '🔮', label: 'ARCANE',   cls: 'el-cosmic' },
-  { emoji: '🧊', label: 'FROST',    cls: 'el-cryo' },
-  { emoji: '⛰️', label: 'TERRA',    cls: 'el-geo' },
-  { emoji: '🍃', label: 'FLORA',    cls: 'el-nature' },
-  { emoji: '🌙', label: 'LUNA',     cls: 'el-lunar' },
-  { emoji: '💥', label: 'BURST',    cls: 'el-magma' },
-  { emoji: '🫧', label: 'BUBBLE',   cls: 'el-hydro' },
-  { emoji: '🌀', label: 'VORTEX',   cls: 'el-anemo' },
-  { emoji: '✨', label: 'SPARK',    cls: 'el-electro' },
-  { emoji: '🌨️', label: 'BLIZZARD', cls: 'el-cryo' },
-  { emoji: '🏔️', label: 'PEAK',     cls: 'el-geo' },
-  { emoji: '🌱', label: 'SPROUT',   cls: 'el-nature' },
-  { emoji: '🕳️', label: 'ABYSS',    cls: 'el-shadow' },
-  { emoji: '🌋', label: 'MAGMA',    cls: 'el-magma' },
-  { emoji: '🐉', label: 'DRAGON',   cls: 'el-cosmic' },
-  { emoji: '🦋', label: 'SPIRIT',   cls: 'el-spirit' },
-  { emoji: '💎', label: 'CRYSTAL',  cls: 'el-cryo' },
-  { emoji: '🍀', label: 'CLOVER',   cls: 'el-nature' },
-  { emoji: '⭐', label: 'STAR',     cls: 'el-solar' },
-  { emoji: '🎆', label: 'NOVA',     cls: 'el-magma' },
-  { emoji: '🔱', label: 'TRIDENT',  cls: 'el-storm' },
-  { emoji: '🌸', label: 'BLOOM',    cls: 'el-spirit' },
-  { emoji: '⚗️', label: 'ELIXIR',   cls: 'el-cosmic' },
-  { emoji: '🪄', label: 'MYSTIC',   cls: 'el-lunar' },
-  { emoji: '🦅', label: 'FALCON',   cls: 'el-anemo' },
-  { emoji: '🌺', label: 'PETAL',    cls: 'el-nature' },
-  { emoji: '🧲', label: 'MAGNET',   cls: 'el-electro' },
-  { emoji: '🫐', label: 'BERRY',    cls: 'el-hydro' },
-  { emoji: '🌠', label: 'COMET',    cls: 'el-cosmic' },
-  { emoji: '🏵️', label: 'ROSETTE',  cls: 'el-solar' },
-  { emoji: '🐚', label: 'SHELL',    cls: 'el-storm' },
-  { emoji: '🪸', label: 'CORAL',    cls: 'el-spirit' },
-  { emoji: '🦊', label: 'FOX',      cls: 'el-magma' },
-  { emoji: '🐺', label: 'WOLF',     cls: 'el-shadow' },
-  { emoji: '🦁', label: 'LION',     cls: 'el-solar' },
-  { emoji: '🐦', label: 'BIRD',     cls: 'el-nature' },
-  { emoji: '🌵', label: 'CACTUS',   cls: 'el-dendro' },
-  { emoji: '🍄', label: 'SHROOM',   cls: 'el-nature' },
-  { emoji: '🪐', label: 'PLANET',   cls: 'el-cosmic' },
-  { emoji: '☄️', label: 'METEOR',   cls: 'el-magma' },
-  { emoji: '🌌', label: 'GALAXY',   cls: 'el-cosmic' },
-  { emoji: '🔯', label: 'RUNE',     cls: 'el-lunar' },
-  { emoji: '⚜️', label: 'CREST',    cls: 'el-solar' },
-  { emoji: '🧿', label: 'WARD',     cls: 'el-storm' },
-  { emoji: '🪬', label: 'CHARM',    cls: 'el-spirit' },
-  { emoji: '🗡️', label: 'BLADE',    cls: 'el-shadow' },
-  { emoji: '🏹', label: 'ARROW',    cls: 'el-anemo' },
-  { emoji: '🛡️', label: 'SHIELD',   cls: 'el-geo' },
-  { emoji: '🔑', label: 'KEY',      cls: 'el-lunar' },
-  { emoji: '📿', label: 'BEAD',     cls: 'el-hydro' },
-  { emoji: '🪩', label: 'ORION',    cls: 'el-storm' },
-  { emoji: '🎴', label: 'SEAL',     cls: 'el-shadow' },
-  { emoji: '🧨', label: 'FLARE',    cls: 'el-magma' },
-  { emoji: '🎇', label: 'GLOW',     cls: 'el-solar' },
-  { emoji: '🪷', label: 'LOTUS',    cls: 'el-spirit' },
-  { emoji: '🌾', label: 'REED',     cls: 'el-nature' },
-  { emoji: '🫧', label: 'MIST',     cls: 'el-cryo' },
-  { emoji: '🌫️', label: 'HAZE',     cls: 'el-storm' },
-  { emoji: '🔆', label: 'RADIANT',  cls: 'el-solar' },
-  { emoji: '💠', label: 'PRIMAL',   cls: 'el-lunar' },
-  { emoji: '🔷', label: 'SHARD',    cls: 'el-storm' },
 ];
 
 let cols = 4, rows = 4;
@@ -592,8 +453,15 @@ function startGame() {
   const best = bestMoves[key()];
   document.getElementById('best').textContent = best ? best : '--';
 
-  const needed = (rows * cols) / 2;
+  /*const needed = (rows * cols) / 2;
   const pool = [...CARDS].sort(() => Math.random() - 0.5).slice(0, needed);
+  cards = [...pool, ...pool].sort(() => Math.random() - 0.5);*/
+
+  const needed = (rows * cols) / 2;
+  const pool = [];
+  for (let i = 0; i < needed; i++) {
+  pool.push(CARDS[i % CARDS.length]);
+  }
   cards = [...pool, ...pool].sort(() => Math.random() - 0.5);
 
   const board = document.getElementById('board');
