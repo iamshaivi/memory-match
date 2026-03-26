@@ -66,8 +66,16 @@ body {
 }
 
 /* ── Layout ── */
-.wrapper { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem 4rem; }
-
+/*.wrapper { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem 4rem; }/*ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh*/
+.wrapper {
+  position: relative; z-index: 2; min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: start;/*ahhhhhhhhh*/
+}
 /* ── Header ── */
 header { text-align: center; margin-bottom: 2.5rem; }
 .title-deco {
@@ -80,8 +88,8 @@ header { text-align: center; margin-bottom: 2.5rem; }
   opacity: 0.7;
 }
 h1 {
-  font-family: var(--deco);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: var(--deco);/*big fucking ass gold change to silver my godddddd*/
+  font-size: clamp(2rem, 5vw, 3.5rem);/*no gold light*/
   color: var(--gold-light);
   text-shadow: 0 0 30px rgba(200,168,75,0.5), 0 0 60px rgba(200,168,75,0.2);
   letter-spacing: 4px;
@@ -96,7 +104,7 @@ h1 {
 
 /* ornament line */
 .ornament { display: flex; align-items: center; gap: 12px; justify-content: center; margin: 1rem 0 0; }
-.ornament-line { height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.ornament-line { height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }/*gold again -- fix it fr this time*/
 .ornament-gem {
   width: 8px; height: 8px;
   background: var(--gold);
@@ -124,7 +132,7 @@ h1 {
 .stat { text-align: center; }
 .stat-label { font-family: var(--pixel); font-size: 6px; color: var(--text-dim); letter-spacing: 2px; display: block; margin-bottom: 4px; }
 .stat-val { font-family: var(--pixel); font-size: 14px; color: var(--gold-light); }
-.stat-val.red { color: var(--red); }
+.stat-val.red { color: var(--red); }/*goldddddddd😭😭😭*/
 .stat-val.green { color: var(--accent3); }
 
 /* ── Difficulty selector ── */
@@ -198,6 +206,44 @@ h1 {
   overflow: hidden;
 }
 
+  .left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  top: 2rem;
+}
+
+.right-panel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.diff-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.diff-btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* Mobile fallback */
+@media (max-width: 700px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+  .left-panel {
+    position: static;
+  }
+  .diff-row {
+    flex-direction: row !important;
+  }
+}
+  
 /* Back face — pixel pattern */
 .card-back {
   background: var(--panel2);
@@ -255,13 +301,13 @@ h1 {
 .el-dendro.card-front { background: linear-gradient(135deg, #0a2a0a, #051505); }
 .el-void.card-front { background: linear-gradient(135deg, #1a0a1a, #0f050f); }*/
 
-.el-pyro.card-front{ background: linear-gradient(135deg, #2a1010, #1a0a0a); box-shadow: inset 0 0 12px rgba(255,80,0,0.15); }
-.el-hydro.card-front{ background: linear-gradient(135deg, #0a1a2a, #0a0f1a); box-shadow: inset 0 0 12px rgba(0,120,255,0.15); }
-.el-anemo.card-front{ background: linear-gradient(135deg, #0a2a1a, #0a1a10); box-shadow: inset 0 0 12px rgba(0,200,150,0.15); }
-.el-dendro.card-front{ background: linear-gradient(135deg, #0a2a0a, #051505); box-shadow: inset 0 0 12px rgba(76,255,80,0.15); }
-.el-electro.card-front{ background: linear-gradient(135deg, #1a0a2a, #100a1a); box-shadow: inset 0 0 12px rgba(155,50,255,0.15); }
-.el-cryo.card-front{ background: linear-gradient(135deg, #0a1a2a, #0a1520); box-shadow: inset 0 0 12px rgba(0,210,255,0.15); }
-.el-geo.card-front{ background: linear-gradient(135deg, #2a1a0a, #1a1005); box-shadow: inset 0 0 12px rgba(255,170,0,0.15); }
+.el-pyro  .card-front{ background: linear-gradient(135deg, #2a1010, #1a0a0a); box-shadow: inset 0 0 12px rgba(255,80,0,0.15); }
+.el-hydro  .card-front{ background: linear-gradient(135deg, #0a1a2a, #0a0f1a); box-shadow: inset 0 0 12px rgba(0,120,255,0.15); }
+.el-anemo  .card-front{ background: linear-gradient(135deg, #0a2a1a, #0a1a10); box-shadow: inset 0 0 12px rgba(0,200,150,0.15); }
+.el-dendro  .card-front{ background: linear-gradient(135deg, #0a2a0a, #051505); box-shadow: inset 0 0 12px rgba(76,255,80,0.15); }
+.el-electro  .card-front{ background: linear-gradient(135deg, #1a0a2a, #100a1a); box-shadow: inset 0 0 12px rgba(155,50,255,0.15); }
+.el-cryo  .card-front{ background: linear-gradient(135deg, #0a1a2a, #0a1520); box-shadow: inset 0 0 12px rgba(0,210,255,0.15); }
+.el-geo  .card-front{ background: linear-gradient(135deg, #2a1a0a, #1a1005); box-shadow: inset 0 0 12px rgba(255,170,0,0.15); }
 
 /* ── Action buttons ── */
 .actions { display: flex; gap: 12px; margin-top: 1.5rem; justify-content: center; }
@@ -304,7 +350,7 @@ h1 {
 .win-box::before { top: 12px; left: 12px; }
 .win-box::after  { bottom: 12px; right: 12px; }
 .win-title { font-family: var(--deco); font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; animation: shimmer 2s infinite alternate; }
-.win-stat { font-family: var(--pixel); font-size: 9px; color: var(--text-dim); margin: 6px 0; }
+.win-stat { font-family: var(--pixel); font-size: 9px; color: var(--text-dim); margin: 6px 0; }/*golddddddddddddddddd😭😭😭😭😭😭*/
 .win-stat span { color: var(--gold-light); }
 
 /* ── Pixel dust explosion ── */
@@ -348,52 +394,58 @@ h1 {
 <div class="particle" style="left:88%;--d2:7s;--delay2:3s">✦</div>
 
 <div class="wrapper">
-  <header>
-    <div class="title-deco">✦ Teyvat Archives ✦</div>
-    <h1>MEMORIA</h1>
-    <div class="subtitle">MEMORY MATCH</div>
-    <div class="ornament">
-      <div class="ornament-line"></div>
-      <div class="ornament-gem"></div>
-      <div class="ornament-line"></div>
-    </div>
-  </header>
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+    <header>
+      <div class="title-deco">✦ Teyvat Archives ✦</div>
+      <h1>MEMORIA</h1>
+      <div class="subtitle">MEMORY MATCH</div>
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-gem"></div>
+        <div class="ornament-line"></div>
+      </div>
+    </header>
 
-  <div class="diff-row">
-    <button class="diff-btn active" onclick="setDiff(4,4,this)">4×4</button>
-    <button class="diff-btn" onclick="setDiff(6,6,this)">6×6</button><!--ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh-->
-    <button class="diff-btn" onclick="setDiff(8,8,this)">8×8</button><!--ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh-->
+    <div class="diff-row" style="flex-direction: column; align-items: stretch; margin-top: 1.5rem;">
+      <button class="diff-btn active" onclick="setDiff(4,4,this)">4×4</button>
+      <button class="diff-btn" onclick="setDiff(6,6,this)">6×6</button>
+      <button class="diff-btn" onclick="setDiff(8,8,this)">8×8</button>
+    </div>
+
+    <div class="stats" style="flex-direction: column; align-items: center; margin-top: 1.5rem; gap: 1rem;">
+      <div class="stat">
+        <span class="stat-label">Moves</span>
+        <span class="stat-val" id="moves">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Time</span>
+        <span class="stat-val" id="timer">0:00</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Pairs</span>
+        <span class="stat-val green" id="pairs">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Best</span>
+        <span class="stat-val red" id="best">--</span>
+      </div>
+    </div>
+
+    <div class="actions" style="flex-direction: column; margin-top: 1.5rem;">
+      <button class="action-btn" onclick="startGame()">↺ New Game</button>
+      <button class="action-btn" onclick="toggleHint()">◈ Hint</button>
+    </div>
   </div>
 
-  <div class="stats">
-    <div class="stat">
-      <span class="stat-label">Moves</span>
-      <span class="stat-val" id="moves">0</span>
-    </div>
-    <div class="stat">
-      <span class="stat-label">Time</span>
-      <span class="stat-val" id="timer">0:00</span>
-    </div>
-    <div class="stat">
-      <span class="stat-label">Pairs</span>
-      <span class="stat-val green" id="pairs">0</span>
-    </div>
-    <div class="stat">
-      <span class="stat-label">Best</span>
-      <span class="stat-val red" id="best">--</span>
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <div class="board-wrap">
+      <div id="board"></div>
+      <div id="flash"></div>
     </div>
   </div>
-
-  <div class="board-wrap">
-    <div id="board"></div>
-    <div id="flash"></div>
-  </div>
-
-  <div class="actions">
-    <button class="action-btn" onclick="startGame()">↺ New Game</button>
-    <button class="action-btn" onclick="toggleHint()">◈ Hint</button>
-  </div>
-</div>
 
 <!-- Win overlay -->
 <div id="winOverlay">
