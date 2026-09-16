@@ -27,5 +27,3 @@ I took inspiration from the game Genshin Impact its graphics and style are so in
 - HTML / CSS / JavaScript
 - No frameworks or dependencies
 - Single file — works offline
-
-## can run locally
