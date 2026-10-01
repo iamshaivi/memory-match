@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 :root {
+  /* TODO: swap gold -> silver here (and the rgba(200,168,75,...) values below) */
   --gold: #c8a84b;
   --gold-light: #f0d080;
   --gold-dark: #8a6a1a;
@@ -65,19 +66,34 @@ body {
   100% { transform: translateY(-20px) rotate(360deg); opacity: 0; }
 }
 
-/* ── Layout ── */
-/*.wrapper { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem 4rem; }/*ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh*/
+/* ── Two-column layout ── */
 .wrapper {
-  position: relative; z-index: 2; min-height: 100vh;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  grid-template-rows: auto;
-  gap: 2rem;
+  position: relative; z-index: 2;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 2rem;
-  align-items: start;/*ahhhhhhhhh*/
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: center;
 }
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.right-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ── Header ── */
-header { text-align: center; margin-bottom: 2.5rem; }
+header { text-align: center; }
 .title-deco {
   font-family: var(--pixel);
   font-size: 8px;
@@ -88,11 +104,11 @@ header { text-align: center; margin-bottom: 2.5rem; }
   opacity: 0.7;
 }
 h1 {
-  font-family: var(--deco);/*big fucking ass gold change to silver my godddddd*/
-  font-size: clamp(2rem, 5vw, 3.5rem);/*no gold light*/
+  font-family: var(--deco);
+  font-size: 2.2rem;
   color: var(--gold-light);
   text-shadow: 0 0 30px rgba(200,168,75,0.5), 0 0 60px rgba(200,168,75,0.2);
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   line-height: 1.1;
   animation: shimmer 4s infinite alternate;
 }
@@ -104,7 +120,7 @@ h1 {
 
 /* ornament line */
 .ornament { display: flex; align-items: center; gap: 12px; justify-content: center; margin: 1rem 0 0; }
-.ornament-line { height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }/*gold again -- fix it fr this time*/
+.ornament-line { height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 .ornament-gem {
   width: 8px; height: 8px;
   background: var(--gold);
@@ -112,34 +128,16 @@ h1 {
   box-shadow: 0 0 8px var(--gold);
 }
 
-/* ── Stats bar ── */
-.stats {
-  display: flex; gap: 2rem; margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--panel), var(--panel2));
-  border: 1px solid rgba(200,168,75,0.25);
-  border-radius: 4px;
-  padding: 0.75rem 2rem;
-  position: relative;
-  image-rendering: pixelated;
+/* ── Difficulty selector: one row, equal width ── */
+.diff-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
-.stats::before, .stats::after {
-  content: '◆';
-  position: absolute; top: 50%; transform: translateY(-50%);
-  color: var(--gold); font-size: 10px; opacity: 0.5;
-}
-.stats::before { left: 10px; }
-.stats::after  { right: 10px; }
-.stat { text-align: center; }
-.stat-label { font-family: var(--pixel); font-size: 6px; color: var(--text-dim); letter-spacing: 2px; display: block; margin-bottom: 4px; }
-.stat-val { font-family: var(--pixel); font-size: 14px; color: var(--gold-light); }
-.stat-val.red { color: var(--red); }/*goldddddddd😭😭😭*/
-.stat-val.green { color: var(--accent3); }
-
-/* ── Difficulty selector ── */
-.diff-row { display: flex; gap: 8px; margin-bottom: 1.5rem; }
 .diff-btn {
   font-family: var(--pixel); font-size: 7px;
-  padding: 8px 14px; letter-spacing: 1px;
+  width: 100%; text-align: center;
+  padding: 8px 0; letter-spacing: 1px;
   border: 1px solid rgba(200,168,75,0.3);
   background: transparent; color: var(--text-dim);
   cursor: pointer; transition: all 0.2s;
@@ -152,6 +150,22 @@ h1 {
   box-shadow: 0 0 12px rgba(200,168,75,0.2);
 }
 
+/* ── Stats: 2x2 grid ── */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem 1rem;
+  background: linear-gradient(135deg, var(--panel), var(--panel2));
+  border: 1px solid rgba(200,168,75,0.25);
+  border-radius: 4px;
+  padding: 1rem;
+}
+.stat { text-align: center; }
+.stat-label { font-family: var(--pixel); font-size: 6px; color: var(--text-dim); letter-spacing: 2px; display: block; margin-bottom: 6px; }
+.stat-val { font-family: var(--pixel); font-size: 14px; color: var(--gold-light); }
+.stat-val.red { color: var(--red); }
+.stat-val.green { color: var(--accent3); }
+
 /* ── Game Board ── */
 .board-wrap {
   background: linear-gradient(145deg, rgba(22,29,46,0.9), rgba(30,40,64,0.9));
@@ -161,7 +175,6 @@ h1 {
   position: relative;
   box-shadow: 0 0 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(200,168,75,0.03);
 }
-/* corner ornaments */
 .board-wrap::before, .board-wrap::after {
   content: '';
   position: absolute;
@@ -206,61 +219,6 @@ h1 {
   overflow: hidden;
 }
 
-  /*.left-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: sticky;
-  top: 2rem;
-}*/
-  
-  .left-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  min-height: 100vh;
-  justify-content: center;
-}
-
-/*.right-panel {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}*/
-  
-  .right-panel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-.diff-row {
-  display: flex;
-  gap: 8px;
-  width: 100%;
-}
-
-.diff-btn {
-  width: 100%;
-  text-align: center;
-}
-
-/* Mobile fallback */
-@media (max-width: 700px) {
-  .wrapper {
-    grid-template-columns: 1fr;
-  }
-  .left-panel {
-    position: static;
-  }
-  .diff-row {
-    flex-direction: row !important;
-  }
-}
-  
 /* Back face — pixel pattern */
 .card-back {
   background: var(--panel2);
@@ -308,29 +266,24 @@ h1 {
 }
 .card.matched .card-label { color: var(--gold); }
 
-/* bg gradients per element */
-/*.el-pyro.card-front  { background: linear-gradient(135deg, #2a1010, #1a0a0a); }
-.el-hydro.card-front { background: linear-gradient(135deg, #0a1a2a, #0a0f1a); }
-.el-anemo.card-front { background: linear-gradient(135deg, #0a2a1a, #0a1a10); }
-.el-electro.card-front { background: linear-gradient(135deg, #1a0a2a, #100a1a); }
-.el-cryo.card-front { background: linear-gradient(135deg, #0a1a2a, #0a1520); }
-.el-geo.card-front { background: linear-gradient(135deg, #2a1a0a, #1a1005); }
-.el-dendro.card-front { background: linear-gradient(135deg, #0a2a0a, #051505); }
-.el-void.card-front { background: linear-gradient(135deg, #1a0a1a, #0f050f); }*/
-
-.el-pyro  .card-front{ background: linear-gradient(135deg, #2a1010, #1a0a0a); box-shadow: inset 0 0 12px rgba(255,80,0,0.15); }
-.el-hydro  .card-front{ background: linear-gradient(135deg, #0a1a2a, #0a0f1a); box-shadow: inset 0 0 12px rgba(0,120,255,0.15); }
-.el-anemo  .card-front{ background: linear-gradient(135deg, #0a2a1a, #0a1a10); box-shadow: inset 0 0 12px rgba(0,200,150,0.15); }
-.el-dendro  .card-front{ background: linear-gradient(135deg, #0a2a0a, #051505); box-shadow: inset 0 0 12px rgba(76,255,80,0.15); }
-.el-electro  .card-front{ background: linear-gradient(135deg, #1a0a2a, #100a1a); box-shadow: inset 0 0 12px rgba(155,50,255,0.15); }
-.el-cryo  .card-front{ background: linear-gradient(135deg, #0a1a2a, #0a1520); box-shadow: inset 0 0 12px rgba(0,210,255,0.15); }
-.el-geo  .card-front{ background: linear-gradient(135deg, #2a1a0a, #1a1005); box-shadow: inset 0 0 12px rgba(255,170,0,0.15); }
+.el-pyro .card-front    { background: linear-gradient(135deg, #2a1010, #1a0a0a); box-shadow: inset 0 0 12px rgba(255,80,0,0.15); }
+.el-hydro .card-front   { background: linear-gradient(135deg, #0a1a2a, #0a0f1a); box-shadow: inset 0 0 12px rgba(0,120,255,0.15); }
+.el-anemo .card-front   { background: linear-gradient(135deg, #0a2a1a, #0a1a10); box-shadow: inset 0 0 12px rgba(0,200,150,0.15); }
+.el-dendro .card-front  { background: linear-gradient(135deg, #0a2a0a, #051505); box-shadow: inset 0 0 12px rgba(76,255,80,0.15); }
+.el-electro .card-front { background: linear-gradient(135deg, #1a0a2a, #100a1a); box-shadow: inset 0 0 12px rgba(155,50,255,0.15); }
+.el-cryo .card-front    { background: linear-gradient(135deg, #0a1a2a, #0a1520); box-shadow: inset 0 0 12px rgba(0,210,255,0.15); }
+.el-geo .card-front     { background: linear-gradient(135deg, #2a1a0a, #1a1005); box-shadow: inset 0 0 12px rgba(255,170,0,0.15); }
 
 /* ── Action buttons ── */
-.actions { display: flex; gap: 12px; margin-top: 1.5rem; justify-content: center; }
+.actions { display: flex; gap: 12px; justify-content: center; }
+.left-panel .actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
 .action-btn {
   font-family: var(--pixel); font-size: 7px; letter-spacing: 1px;
-  padding: 10px 20px;
+  padding: 10px 12px;
   border: 1px solid rgba(200,168,75,0.4);
   background: rgba(200,168,75,0.08);
   color: var(--gold);
@@ -367,8 +320,9 @@ h1 {
 .win-box::before { top: 12px; left: 12px; }
 .win-box::after  { bottom: 12px; right: 12px; }
 .win-title { font-family: var(--deco); font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; animation: shimmer 2s infinite alternate; }
-.win-stat { font-family: var(--pixel); font-size: 9px; color: var(--text-dim); margin: 6px 0; }/*golddddddddddddddddd😭😭😭😭😭😭*/
+.win-stat { font-family: var(--pixel); font-size: 9px; color: var(--text-dim); margin: 6px 0; }
 .win-stat span { color: var(--gold-light); }
+#winOverlay .actions { margin-top: 1.5rem; }
 
 /* ── Pixel dust explosion ── */
 .pixel-dust {
@@ -391,9 +345,16 @@ h1 {
 }
 #flash.show { opacity: 1; }
 
-/* responsive */
+/* ── Mobile: stack ── */
+@media (max-width: 800px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  .left-panel { max-width: 420px; margin: 0 auto; }
+}
 @media (max-width: 500px) {
-  .stats { gap: 1rem; padding: 0.6rem 1.2rem; }
   .win-box { padding: 2rem; }
 }
 </style>
@@ -411,7 +372,7 @@ h1 {
 <div class="particle" style="left:88%;--d2:7s;--delay2:3s">✦</div>
 
 <div class="wrapper">
-<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+
   <!-- LEFT PANEL -->
   <div class="left-panel">
     <header>
@@ -425,32 +386,20 @@ h1 {
       </div>
     </header>
 
-    <div class="diff-row" style="flex-direction: column; align-items: stretch; margin-top: 1.5rem;">
+    <div class="diff-row">
       <button class="diff-btn active" onclick="setDiff(4,4,this)">4×4</button>
       <button class="diff-btn" onclick="setDiff(6,6,this)">6×6</button>
       <button class="diff-btn" onclick="setDiff(8,8,this)">8×8</button>
     </div>
 
-    <div class="stats" style="flex-direction: column; align-items: center; margin-top: 1.5rem; gap: 1rem;">
-      <div class="stat">
-        <span class="stat-label">Moves</span>
-        <span class="stat-val" id="moves">0</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">Time</span>
-        <span class="stat-val" id="timer">0:00</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">Pairs</span>
-        <span class="stat-val green" id="pairs">0</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">Best</span>
-        <span class="stat-val red" id="best">--</span>
-      </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-label">Moves</span><span class="stat-val" id="moves">0</span></div>
+      <div class="stat"><span class="stat-label">Time</span><span class="stat-val" id="timer">0:00</span></div>
+      <div class="stat"><span class="stat-label">Pairs</span><span class="stat-val green" id="pairs">0</span></div>
+      <div class="stat"><span class="stat-label">Best</span><span class="stat-val red" id="best">--</span></div>
     </div>
 
-    <div class="actions" style="flex-direction: column; margin-top: 1.5rem;">
+    <div class="actions">
       <button class="action-btn" onclick="startGame()">↺ New Game</button>
       <button class="action-btn" onclick="toggleHint()">◈ Hint</button>
     </div>
@@ -464,6 +413,8 @@ h1 {
     </div>
   </div>
 
+</div>
+
 <!-- Win overlay -->
 <div id="winOverlay">
   <div class="win-box">
@@ -471,7 +422,7 @@ h1 {
     <p class="win-stat">Moves: <span id="winMoves">—</span></p>
     <p class="win-stat">Time: <span id="winTime">—</span></p>
     <p class="win-stat">Best Moves: <span id="winBest">—</span></p>
-    <div class="actions" style="margin-top:1.5rem">
+    <div class="actions">
       <button class="action-btn" onclick="closeWin()">Play Again</button>
     </div>
   </div>
@@ -489,7 +440,7 @@ for (let i = 0; i < 120; i++) {
 }
 
 /* Game data */
-  const CARDS = [
+const CARDS = [
   { emoji: '🔥', label: 'PYRO',    cls: 'el-pyro' },
   { emoji: '💧', label: 'HYDRO',   cls: 'el-hydro' },
   { emoji: '🌪️', label: 'ANEMO',   cls: 'el-anemo' },
@@ -522,20 +473,22 @@ function startGame() {
   const best = bestMoves[key()];
   document.getElementById('best').textContent = best ? best : '--';
 
-  /*const needed = (rows * cols) / 2;
-  const pool = [...CARDS].sort(() => Math.random() - 0.5).slice(0, needed);
-  cards = [...pool, ...pool].sort(() => Math.random() - 0.5);*/
-
   const needed = (rows * cols) / 2;
   const pool = [];
   for (let i = 0; i < needed; i++) {
-  pool.push(CARDS[i % CARDS.length]);
+    pool.push(CARDS[i % CARDS.length]);
   }
   cards = [...pool, ...pool].sort(() => Math.random() - 0.5);
 
   const board = document.getElementById('board');
   board.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-  const cardSize = Math.min(72, Math.floor((Math.min(window.innerWidth - 80, 560)) / cols) - 10);
+
+  /* Scale the board to the space available next to the left panel */
+  const availW = window.innerWidth > 800 ? window.innerWidth - 460 : window.innerWidth - 60;
+  const availH = window.innerWidth > 800 ? window.innerHeight - 140 : 640;
+  const avail = Math.min(availW, availH, 680);
+  const cardSize = Math.max(36, Math.min(100, Math.floor((avail - 48 - (cols - 1) * 10) / cols)));
+
   board.style.width = (cardSize * cols + (cols - 1) * 10) + 'px';
   board.innerHTML = '';
 
